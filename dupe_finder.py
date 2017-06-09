@@ -12,9 +12,14 @@ def dig(directory):
 
 def checksum(directory):
     list = dig(directory)
+    record = {}
     for filename in list:
         cmd = "md5 " + filename
         fp = os.popen(cmd)
         value = fp.read()
-        print value
+        if value in record:
+            record[value]+=1
+        else:
+            record[value]=1
+    return record
 
