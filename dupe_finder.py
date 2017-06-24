@@ -8,7 +8,7 @@ def dig(directory):
         if os.path.isfile(path):
             c_path.append(path)
         else:
-            dig(path)
+            c_path += dig(path)
     return c_path
 
 def md5(filename):
